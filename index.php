@@ -1,20 +1,12 @@
 <?php 
+echo "<meta charset='utf-8'/>";
 
-require "classes/automobile.php";
+require "classes/Vehicule.php";
+require "classes/Automobile.php";
+require "classes/Moto.php";
 
-$auto1 = new Automobile(20);
-$auto1->demarrer();
-$auto1->accellerer();
-$auto1->accellerer();
-$auto1->accellerer();
-$auto1->freiner();
-$auto1->arreter();
-$auto1->freiner();
-$auto1->arreter();
+$auto = new Automobile(5);
+$auto->affiche();
 
-$auto1->bonjour();
-
-//Automobile::$langue = "en";
-Automobile::changerLangue("en");
-$car1 = new Automobile(20);
-$car1->bonjour();
+$moto = new Moto();
+$moto->affiche();
