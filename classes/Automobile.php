@@ -2,7 +2,7 @@
 
 class Automobile {
 	
-	// propriétés
+	// propriétés d'instance (lié à l'objet)
 	public $consommation; // 10l/100Kms
 	protected $carburant; // essence, diesel, gpl, etc
 	protected $marque; // ferrari, citroen, etc
@@ -14,8 +14,15 @@ class Automobile {
 	protected $vitesseMax;
 	protected $moteur = 0; // 0:eteint, 1:allumé
 
-	// méthodes
+	// propriétés de classe
+	private static $langue = "francais";
 
+	// méthode de classe
+	public static function changerLangue($lang) {
+		self::$langue = $lang;
+	}
+
+	// méthodes
 	public function __construct($v_max){
 		$this->vitesseMax = $v_max;
 	}
@@ -23,6 +30,7 @@ class Automobile {
 	// démarrer, arreter, accellerer, avancer, reculer, freiner, faire_le_plein, allumer_les_phares, etc
 
 	protected function etatAuto() {
+		// this represente l'objet
 		echo "<p>vitesse : " . $this->vitesse . " Km/h</p>";
 		if($this->moteur == 0){
 			echo "<p style='color:red;'><strong>Moteur arreter !</strong></p>";
@@ -30,6 +38,17 @@ class Automobile {
 			echo "<p style='color:green;'><strong>Moteur allumer !</strong></p>";
 		}
 		echo "<hr />";
+	}
+
+	public function bonjour() {
+
+		// self represente la classe
+		if( self::$langue == "francais" ) {
+			echo "<p>Bonjour </p>";
+		} else {
+			echo "<p>Hello </p>";
+		}
+
 	}
 
 	public function demarrer() {
